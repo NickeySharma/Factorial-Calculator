@@ -1,0 +1,134 @@
+<html>
+<head>
+<style>
+  *
+  {
+    padding: 0px;
+    margin: 0px;
+  }
+
+h2
+ {
+  background-color:lightgrey;
+  width: 600px;
+  
+ }
+p
+ {
+   text-align:justify;
+   margin-bottom: 70px;
+ }
+ #header
+ {
+   height: 120px;
+   width: 600px;
+   border: 1px solid gray;
+ }
+ #form
+ {
+  border: 1px dotted lightgray;
+  height: 120px;
+  width: 600px;
+  margin-top: 10px;
+ }
+ #num2
+ {
+   visibility: hidden;
+ }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h2>Factorial Calculator</h2>
+<p>This factorial calculator helps you calculate any factorial operation which is a function that makes the product of all positive integers less than or equal to a given number. More details on this topic you can read below the form. </p>
+</div><br>
+
+<div id="form">
+<form>
+<label>Choose operation:</label><label><select id="chop" onchange="change()">
+  <option value="simplef">simple factorial</option>
+  <option value="add2">add 2 factorials</option>
+  <option value="sub2">subtract 2 factorials</option>
+  <option value="product2">product of 2 factorials</option>
+  <option value="divide2">divide 2 factorials</option>
+</select></label><br><br>
+<span id="sp1"><label>n!:* </label></span> &nbsp;&nbsp; </label>&nbsp;<input type="number" placeholder="n!" id="num1">&nbsp;&nbsp; <input type="number" placeholder="m!" id="num2"><br><br>
+<input type="button" value="Calculate" onclick="add()">&nbsp;&nbsp;<input type="button" value="Reset"><br>
+<span id="cal"></span>
+</form>
+</div>
+
+<script type="text/javascript" lang="javascript">
+function change()
+{
+  var data=document.getElementById("chop").value;
+  if(data=="simplef")
+  {
+    document.getElementById("num2").style.visibility="hidden";
+    document.getElementById("sp1").innerHTML="n!*";
+  }
+  else if(data=="add2")
+  {
+    document.getElementById("sp1").innerHTML="n! + m!";
+    document.getElementById("num2").style.visibility="visible";
+  }
+  else if(data=="sub2")
+  {
+    document.getElementById("sp1").innerHTML="n! - m!";
+    document.getElementById("num2").style.visibility="visible";
+  }
+  else if(data=="product2")
+  {
+    document.getElementById("sp1").innerHTML="n! * m!";
+    document.getElementById("num2").style.visibility="visible";
+  }
+  else if(data=="divide2")
+  {
+    document.getElementById("sp1").innerHTML="n! / m!";
+    document.getElementById("num2").style.visibility="visible";
+  
+  }
+
+}
+var num=0;
+function fact()
+{
+  num=document.getElementById("num1").value;
+  if(num>=0)
+  {
+    var counter=num;
+    var fact=1;
+  while(counter>=1)
+  {
+    fact=fact*counter;
+    counter-=1;
+  }
+  document.getElementById("cal").innerHTML= +fact;
+}
+else
+{
+  document.getElementById("cal").innerHTML="Negative Number";
+}
+}
+var n=0;
+var a=0;
+function add()
+{
+  n=document.getElementById("num1").value;
+  a=document.getElementById("num2").value;
+  if(n && a >=0)
+  {
+    var counter=n && a;
+    var fact=1;
+    while(counter>=1)
+    {
+      fact=fact*counter;
+      counter-=1;
+    }
+    document.getElementById("cal").innerHTML= +fact;
+  }
+}
+  </script>
+</body>
+</html>
